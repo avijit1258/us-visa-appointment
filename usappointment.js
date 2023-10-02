@@ -297,19 +297,18 @@ const axios = require("axios");
           "/appointment"
       );
 
-      // const availableDatesURL =
-      //   "https://ais.usvisa-info.com/en-" +
-      //   region +
-      //   "/niv/schedule/" +
-      //   appointmentId +
-      //   "/appointment/days/95.json?appointments[expedite]=false";
+      const availableDatesURL =
+        "https://ais.usvisa-info.com/en-" +
+        region +
+        "/niv/schedule/" +
+        appointmentId +
+        "/appointment/days/95.json?appointments[expedite]=false";
 
-      // const availableDatesResponse = await page.waitForResponse(
-      //   availableDatesURL
-      // );
+      const availableDatesResponse = await page.waitForResponse(
+        availableDatesURL
+      );
 
-      // const availableDates = JSON.parse(await availableDatesResponse.text());
-      //notify(availableDates);
+      const availableDates = JSON.parse(await availableDatesResponse.text());
 
       if (availableDates.length <= 0) {
         log("There are no available dates for consulate with id " + consularId);

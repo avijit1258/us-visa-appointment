@@ -321,7 +321,7 @@ const axios = require("axios");
       if (firstDate > currentDate) {
         log(
           "There is not an earlier date available than " +
-            currentDate.toISOString().slice(0, 10)
+            currentDate.toISOString().slice(0, 10) + " earliest availability: " + firstDate.toISOString().slice(0, 10)
         );
         await browser.close();
         return false;

@@ -464,12 +464,9 @@ const axios = require("axios");
     // check the date we selected
     {
       const targetPage = page;
-      const selectedDateElement = await waitForSelector(
-        ["#appointments_consulate_appointment_date div"],
-        targetPage,
-        { timeout, visible: true }
-      );
-      const dateSelectedStr = await selectedDateElement.evaluate((el) => el.textContent);
+      await targetPage.waitForSelector('#appointments_consulate_appointment_date');
+      
+      const dateSelectedStr = await targetPage.$eval('#appointments_consulate_appointment_date', el => el.value); 
       const dateSelected = new Date(dateSelectedStr);
 
       log("Selected date for reschedule: " + dateSelectedStr);
